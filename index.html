@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirror Work Series — FitNova Mindfulness</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1A6B2F;
+    --green-leaf: #7DC242;
+    --cream: #F5F0E8;
+    --warm-white: #FDFAF5;
+    --charcoal: #1C1C1C;
+    --muted: #6B6B6B;
+    --gold: #C9A84C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--green-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(125,194,66,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%);
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .fitnova-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(125,194,66,0.15);
+    border: 1px solid rgba(125,194,66,0.3);
+    color: var(--green-leaf);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 2px;
+    width: fit-content;
+    margin-bottom: 40px;
+  }
+
+  .fitnova-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--green-leaf);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--green-leaf);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 2.5vw, 34px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 48px;
+    line-height: 1.3;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(245,240,232,0.75);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .meta-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--green-leaf);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .btn-primary {
+    background: var(--green-leaf);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover::after { transform: translateX(0); }
+
+  .free-note {
+    font-size: 12px;
+    color: rgba(245,240,232,0.5);
+    font-style: italic;
+  }
+
+  .free-note strong {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* Hero right — mirror visual */
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 80px 80px 80px 40px;
+  }
+
+  .mirror-frame {
+    position: relative;
+    width: 320px;
+    height: 420px;
+  }
+
+  .mirror-outer {
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(201,168,76,0.4);
+    border-radius: 160px 160px 120px 120px;
+  }
+
+  .mirror-inner {
+    position: absolute;
+    inset: 12px;
+    background: linear-gradient(160deg, rgba(125,194,66,0.06) 0%, rgba(26,107,47,0.3) 50%, rgba(0,0,0,0.4) 100%);
+    border-radius: 148px 148px 108px 108px;
+    border: 1px solid rgba(201,168,76,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    overflow: hidden;
+  }
+
+  .mirror-inner::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -20%;
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(245,240,232,0.04) 0%, transparent 70%);
+    transform: rotate(-15deg);
+  }
+
+  .mirror-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(245,240,232,0.85);
+    text-align: center;
+    padding: 0 32px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mirror-attr {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mirror-glow {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 80px;
+    background: radial-gradient(ellipse, rgba(125,194,66,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* WHAT IS THIS */
+  .section-intro {
+    padding: 120px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 24px;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 3.5vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 32px;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--green-dark);
+  }
+
+  .section-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .section-body p + p { margin-top: 20px; }
+
+  .stat-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .stat-item {
+    border-left: 2px solid var(--green-leaf);
+    padding-left: 28px;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--green-dark);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* SESSIONS */
+  .section-sessions {
+    background: var(--charcoal);
+    padding: 120px 80px;
+  }
+
+  .sessions-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .sessions-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .sessions-header .section-label {
+    color: var(--green-leaf);
+    margin-bottom: 20px;
+  }
+
+  .sessions-header .section-heading {
+    color: var(--cream);
+  }
+
+  .sessions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .session-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 36px;
+    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .session-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--green-leaf);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom;
+  }
+
+  .session-card:hover { background: rgba(125,194,66,0.05); }
+  .session-card:hover::before { transform: scaleY(1); }
+
+  .session-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--green-leaf);
+    opacity: 0.6;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .session-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .session-tag {
+    font-size: 11px;
+    color: rgba(245,240,232,0.35);
+    font-weight: 300;
+  }
+
+  .session-card.free-session {
+    background: rgba(125,194,66,0.07);
+    border-color: rgba(125,194,66,0.2);
+  }
+
+  .free-badge {
+    display: inline-block;
+    background: var(--green-leaf);
+    color: var(--charcoal);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  /* FACILITATORS */
+  .section-facilitators {
+    padding: 120px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .facilitators-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .facilitators-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .facilitator-card {
+    text-align: center;
+    padding: 48px 36px;
+    border: 1px solid rgba(26,107,47,0.15);
+    position: relative;
+    transition: border-color 0.3s ease;
+  }
+
+  .facilitator-card:hover { border-color: rgba(26,107,47,0.4); }
+
+  .facilitator-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-leaf));
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: white;
+  }
+
+  .facilitator-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .facilitator-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--green-dark);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .facilitator-bio {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* TESTIMONIALS */
+  .section-testimonials {
+    background: var(--cream);
+    padding: 100px 80px;
+  }
+
+  .testimonials-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: 36px 28px;
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--green-leaf);
+    opacity: 0.3;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    padding-top: 20px;
+  }
+
+  .testimonial-author {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green-dark);
+  }
+
+  .testimonial-detail {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  /* PRICING */
+  .section-pricing {
+    padding: 120px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .pricing-card {
+    border: 1px solid rgba(26,107,47,0.2);
+    padding: 72px 80px;
+    position: relative;
+    margin-top: 56px;
+  }
+
+  .pricing-card::before {
+    content: 'COMPLETE SERIES';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green-dark);
+    color: var(--cream);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 16px;
+    white-space: nowrap;
+  }
+
+  .price-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--green-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-currency {
+    font-size: 32px;
+    vertical-align: super;
+  }
+
+  .price-note {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  .price-includes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 48px;
+    text-align: left;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .price-include-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--charcoal);
+    font-weight: 300;
+  }
+
+  .check {
+    width: 18px;
+    height: 18px;
+    background: var(--green-leaf);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .check::after {
+    content: '✓';
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .free-highlight {
+    background: rgba(125,194,66,0.1);
+    border: 1px solid rgba(125,194,66,0.3);
+    padding: 20px 32px;
+    margin-bottom: 40px;
+    font-size: 14px;
+    color: var(--green-dark);
+    font-weight: 400;
+  }
+
+  .free-highlight strong { font-weight: 600; }
+
+  .seats-counter {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 20px;
+    font-weight: 300;
+  }
+
+  .seats-counter span {
+    color: #C0392B;
+    font-weight: 500;
+  }
+
+  /* FAQ */
+  .section-faq {
+    background: var(--charcoal);
+    padding: 100px 80px;
+  }
+
+  .faq-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .faq-header .section-heading { color: var(--cream); }
+  .faq-header .section-label { color: var(--green-leaf); }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 28px 0;
+  }
+
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--cream);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 20px;
+    color: var(--green-leaf);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+  .faq-a {
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.55);
+    font-weight: 300;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding-top: 16px;
+  }
+
+  /* FOOTER CTA */
+  .section-final-cta {
+    background: var(--green-dark);
+    padding: 120px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(125,194,66,0.15) 0%, transparent 60%);
+  }
+
+  .final-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4vw, 64px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .final-heading em {
+    font-style: italic;
+    color: var(--green-leaf);
+  }
+
+  .final-sub {
+    font-size: 16px;
+    color: rgba(245,240,232,0.6);
+    font-weight: 300;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .final-cta-wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .tagline-footer {
+    margin-top: 72px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.25);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--green-leaf);
+    margin: 28px auto 0;
+    opacity: 0.4;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 32px; }
+    .section-intro { grid-template-columns: 1fr; gap: 48px; padding: 80px 32px; }
+    .section-sessions { padding: 80px 32px; }
+    .sessions-grid { grid-template-columns: 1fr; }
+    .facilitators-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .section-facilitators { padding: 80px 32px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .section-testimonials { padding: 80px 32px; }
+    .section-pricing { padding: 80px 32px; }
+    .pricing-card { padding: 48px 32px; }
+    .section-faq { padding: 80px 32px; }
+    .section-final-cta { padding: 80px 32px; }
+  }
+
+  /* FADE-IN ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="fitnova-badge">FitNova Mindfulness</div>
+    <div class="hero-eyebrow">A 10-Session Live Online Journey</div>
+    <h1 class="hero-title">
+      See Yourself.<br>
+      <em>Heal Yourself.</em>
+    </h1>
+    <p class="hero-subtitle">Inspired by the Mirror Work teachings<br>of Louise Hay</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-dot"></span>10 live sessions · 1 hour each · 9–10 PM</div>
+      <div class="meta-item"><span class="meta-dot"></span>Weekdays starting June 16, 2025</div>
+      <div class="meta-item"><span class="meta-dot"></span>Facilitated by Dr. Archana &amp; Dr. Seema</div>
+      <div class="meta-item"><span class="meta-dot"></span>Live on Zoom · Limited to 100 participants</div>
+    </div>
+    <div class="hero-cta-group">
+      <a href="https://forms.gle/YOURFORMLINK" target="_blank" class="btn-primary">Register Free — Session 1 · June 16</a>
+      <p class="free-note">No payment. No catch. <strong>Just show up.</strong></p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="mirror-frame">
+      <div class="mirror-outer"></div>
+      <div class="mirror-inner">
+        <p class="mirror-quote">"You've been criticising yourself for years and it hasn't worked. Try approving of yourself and see what happens."</p>
+        <p class="mirror-attr">— Louise Hay</p>
+      </div>
+      <div class="mirror-glow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS THIS -->
+<section style="padding: 0;">
+  <div class="section-intro">
+    <div class="fade-up">
+      <p class="section-label">What is Mirror Work?</p>
+      <h2 class="section-heading">The most powerful healing tool<br>was always <em>in front of you</em></h2>
+      <div class="section-body">
+        <p>Mirror Work is a simple, deeply transformative practice: you look at yourself — really look — and you speak with kindness. That's it. And yet for most women, it's the hardest thing they've ever done.</p>
+        <p>Developed by Louise Hay, author of <em>You Can Heal Your Life</em>, Mirror Work cuts through the noise of productivity-based wellness and goes straight to the root: how you talk to yourself when no one's watching.</p>
+        <p>Over 10 guided sessions, Dr. Archana and Dr. Seema will hold space for you to do what years of self-improvement strategies haven't: meet yourself with compassion.</p>
+      </div>
+    </div>
+    <div class="stat-stack fade-up">
+      <div class="stat-item">
+        <div class="stat-number">2+</div>
+        <div class="stat-label">Years of FitNova mindfulness sessions,<br>every single month</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Live sessions hosted on Zoom<br>with real community</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50–60</div>
+        <div class="stat-label">Participants who show up,<br>month after month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section class="section-sessions">
+  <div class="sessions-inner">
+    <div class="sessions-header fade-up">
+      <p class="section-label">The Journey</p>
+      <h2 class="section-heading" style="color: var(--cream);">10 sessions.<br><em style="color: var(--green-leaf);">One transformation.</em></h2>
+    </div>
+    <div class="sessions-grid fade-up">
+      <div class="session-card free-session">
+        <span class="free-badge">Free · Open to All</span>
+        <p class="session-number">Session 01 · June 16</p>
+        <h3 class="session-title">The Face You Avoid</h3>
+        <p class="session-tag">Introduction to Mirror Work</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 02 · June 17</p>
+        <h3 class="session-title">The Critical Voice</h3>
+        <p class="session-tag">Recognising self-talk patterns</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 03 · June 18</p>
+        <h3 class="session-title">Forgiving the Past Self</h3>
+        <p class="session-tag">Release without erasing</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 04 · June 19</p>
+        <h3 class="session-title">The Body in the Mirror</h3>
+        <p class="session-tag">Healing physical self-image</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 05 · June 20</p>
+        <h3 class="session-title">The Inner Child</h3>
+        <p class="session-tag">What she needed to hear</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 06 · June 23</p>
+        <h3 class="session-title">Worthiness</h3>
+        <p class="session-tag">"I deserve good things"</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 07 · June 24</p>
+        <h3 class="session-title">Relationships &amp; Reflection</h3>
+        <p class="session-tag">How you see yourself shapes who you attract</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 08 · June 25</p>
+        <h3 class="session-title">Releasing Resentment</h3>
+        <p class="session-tag">Through reflection, not performance</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 09 · June 26</p>
+        <h3 class="session-title">Affirmations That Actually Land</h3>
+        <p class="session-tag">Making them real, not rehearsed</p>
+      </div>
+      <div class="session-card">
+        <p class="session-number">Session 10 · June 27</p>
+        <h3 class="session-title">The Integration</h3>
+        <p class="session-tag">Your new Mirror Work practice</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITATORS -->
+<section class="section-facilitators">
+  <div class="facilitators-header fade-up">
+    <p class="section-label">Your Guides</p>
+    <h2 class="section-heading">Who holds the space</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="facilitators-grid fade-up">
+    <div class="facilitator-card">
+      <div class="facilitator-avatar">A</div>
+      <h3 class="facilitator-name">Dr. Archana</h3>
+      <p class="facilitator-title">Anaesthesiologist · Functional Medicine Expert</p>
+      <p class="facilitator-bio">Co-founder of FitNova Wellness. Dr. Archana has facilitated over 100 mindfulness sessions, bringing clinical precision and deep warmth to the practice of inner healing.</p>
+    </div>
+    <div class="facilitator-card">
+      <div class="facilitator-avatar">S</div>
+      <h3 class="facilitator-name">Dr. Seema</h3>
+      <p class="facilitator-title">FitNova Mindfulness Facilitator</p>
+      <p class="facilitator-bio">A trusted voice in the FitNova community, Dr. Seema has guided hundreds of participants through evidence-informed mindfulness practices over two years of monthly sessions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header fade-up">
+      <p class="section-label">From the Community</p>
+      <h2 class="section-heading">What participants say</h2>
+    </div>
+    <div class="testimonials-grid fade-up">
+      <div class="testimonial-card">
+        <p class="testimonial-text">I came for stress relief. I stayed because it changed how I talk to myself every morning. Two years in, I haven't missed a session.</p>
+        <p class="testimonial-author">Priya M.</p>
+        <p class="testimonial-detail">FitNova client · Pune</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Dr. Archana creates a space that feels completely safe. I've never experienced anything like it in an online format before.</p>
+        <p class="testimonial-author">Sunita R.</p>
+        <p class="testimonial-detail">Regular participant · Mumbai</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">I was sceptical of mindfulness online. After the first session, I cancelled plans to make sure I never miss it.</p>
+        <p class="testimonial-author">Kavitha D.</p>
+        <p class="testimonial-detail">FitNova coach · Bengaluru</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-pricing" id="register">
+  <p class="section-label fade-up">Join the Series</p>
+  <h2 class="section-heading fade-up">Session 1 is free.<br><em>No payment. No catch.</em></h2>
+
+  <div class="pricing-card fade-up" style="border-color: rgba(125,194,66,0.3);">
+    <div style="margin-bottom: 36px;">
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--charcoal); line-height: 1.7; margin-bottom: 12px;">
+        Register below. Join our WhatsApp group.<br>Show up on <strong>June 16 at 9 PM.</strong>
+      </p>
+      <p style="font-size: 14px; color: var(--muted); font-weight: 300;">Payment for Sessions 2–10 opens only after Session 1 — if you choose to continue.</p>
+    </div>
+    <div class="price-includes" style="margin-bottom: 40px;">
+      <div class="price-include-item"><span class="check"></span>Session 1 completely free — no credit card needed</div>
+      <div class="price-include-item"><span class="check"></span>Instant access to private WhatsApp community</div>
+      <div class="price-include-item"><span class="check"></span>Zoom link sent via WhatsApp before the session</div>
+      <div class="price-include-item"><span class="check"></span>Daily mirror practice prompts in the group</div>
+      <div class="price-include-item"><span class="check"></span>Facilitated live by Dr. Archana &amp; Dr. Seema</div>
+    </div>
+    <a href="https://forms.gle/YOURFORMLINK" target="_blank" class="btn-primary" style="display: inline-block;">Register Free — Takes 30 Seconds</a>
+    <p class="seats-counter">Only <span>100 seats</span> available. Registration closes June 14.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-faq">
+  <div class="faq-inner">
+    <div class="faq-header fade-up">
+      <p class="section-label">Questions</p>
+      <h2 class="section-heading">Answered honestly</h2>
+    </div>
+    <div class="fade-up">
+      <div class="faq-item">
+        <p class="faq-q">What exactly is Mirror Work?</p>
+        <div class="faq-a">Mirror Work is a practice developed by Louise Hay where you use your own reflection as a tool for self-compassion and inner healing. It sounds simple — look at yourself and speak kindly — but most people find it profoundly uncomfortable at first. That discomfort is exactly where the growth is.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Do I need experience with meditation or mindfulness?</p>
+        <div class="faq-a">No prior experience required. These sessions are designed to be accessible. The only thing you need is a willingness to show up. If you're new to mindfulness, this is actually an ideal entry point — it's practical, personal, and immediately applicable to daily life.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What happens in each session?</p>
+        <div class="faq-a">Each session is 60 minutes on Zoom. Dr. Archana and Dr. Seema guide you through a combination of reflection, guided practice, group sharing (optional), and a take-home practice for the following day. You'll never be forced to share anything you're not ready for.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Can I join if I'm not a FitNova client?</p>
+        <div class="faq-a">Yes, absolutely. This series is open to anyone. FitNova's mindfulness sessions have always been a standalone offering. You do not need to be on any FitNova health program to attend.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What if I miss a session?</p>
+        <div class="faq-a">We understand life happens. Recordings will be shared in the WhatsApp group for paid participants. However, the live experience — the group energy, the shared reflection — is what makes this work. We encourage you to protect the 9–10 PM window as much as possible.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Is Session 1 really free? What about the rest?</p>
+        <div class="faq-a">Yes — Session 1 on June 16 is completely free. No payment, no credit card, nothing. After Session 1, if you choose to continue, Sessions 2–10 are available for ₹399 total. Payment details will be shared in the WhatsApp group after the first session.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section-final-cta">
+  <h2 class="final-heading">The mirror has been<br>waiting for you.<br><em>Show up on June 16.</em></h2>
+  <p class="final-sub">Free. No payment. Just one hour. 9 PM.</p>
+  <div class="final-cta-wrap">
+    <a href="https://forms.gle/YOURFORMLINK" target="_blank" class="btn-primary">Register Free — Session 1 · June 16</a>
+    <p class="free-note" style="color: rgba(245,240,232,0.4);">30-second registration · WhatsApp group access immediately</p>
+  </div>
+  <p class="tagline-footer">FitNova Wellness Community · Explore the new you.</p>
+</section>
+
+<script>
+  // FAQ toggle
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
